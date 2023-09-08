@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Diabetico } from './diabetico';
+import { DiabeticosService } from './app.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  
-];
 
 @Component({
   selector: 'app-root',
@@ -19,22 +11,29 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+
+
+  constructor(private diabeticosService: DiabeticosService,
+    private snackBar: MatSnackBar,
+    private router: Router,
+  ) { }
+
+
   ngOnInit(): void {
-  
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  diabeticoModel = new Diabetico("", "", "", "", "", "", undefined)
 
-  articulos:any;
-  
-  art={
-    codigo:0,
-    descripcion:"",
-    precio:0
+  onSubmit() {
+    this.diabeticosService.addDiabetico(this.diabeticoModel).subscribe(() => {
+      this.snackBar.open('Diabetico guardada', undefined, {
+        duration: 1500,
+      });
+      this.router.navigate(['/diabeticos']);
+    })
   }
 
-  
+
 
 }

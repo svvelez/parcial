@@ -1,90 +1,69 @@
 <div class="container">
 
-
-
   <div class="header">
     <h2>CENTRO MEDICO HEMOHEARTH</h2>
   </div>
 
   <div class="formulario">
-    <form class="example-form">
+    <form example-form (ngSubmit)="onSubmit()" #formDiabetico="ngForm">
 
       <mat-form-field class="example-full-width">
-        <mat-label>Peso</mat-label>
-        <input matInput placeholder="Ingreese su peso" value="" type="number">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ingreese su nombre" name="nombre" [(ngModel)]="diabeticoModel.nombre" type="text">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Estatura</mat-label>
-        <input matInput placeholder="Ingreese su estatura" value="" type="number">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Ingreese su apellido" name="apellido" [(ngModel)]="diabeticoModel.apellido"
+          type="text">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Edad</mat-label>
-        <input matInput placeholder="Ingreese su edad" value="" type="number">
+        <mat-label>Cedula</mat-label>
+        <input matInput placeholder="Ingreese su cedula" name="cedula" [(ngModel)]="diabeticoModel.cedula" type="text">
       </mat-form-field>
-
-      <mat-slide-toggle class="example-section">Hombre</mat-slide-toggle>
-      <mat-slide-toggle class="example-section">Mujer</mat-slide-toggle>
 
       <mat-form-field class="select">
-        <mat-label>actividad física practicada</mat-label>
-        <select matNativeControl required>
-          <option value="Sedentario">Sedentario</option>
-          <option value="Actividad ligera">Actividad ligera</option>
-          <option value="Actividad Moderada">Actividad Moderada</option>
-          <option value="Actividad Intensa">Actividad Intensa</option>
-          <option value="Actividad Muy Intensa">Actividad Muy Intensa</option>
-          <option value="Acción Dinámica Específica">Acción Dinámica Específica</option>
+        <mat-label>Eps</mat-label>
+        <select matNativeControl required name="eps" [(ngModel)]="diabeticoModel.eps">
+          <option value="comfandi">Comfandi</option>
+          <option value="sura">Sura</option>
+          <option value="sanitas">Sanitas</option>
+          <option value="emssanar">Emsannar</option>
         </select>
       </mat-form-field>
 
-      <p>
-        <button mat-raised-button color="primary">Agregar</button>
-        <button mat-raised-button color="primary">Modificar</button>
+      <mat-form-field class="select">
+        <mat-label>Sintomas</mat-label>
+        <select matNativeControl required name="sintomas" [(ngModel)]="diabeticoModel.sintomas">
+          <option value="cuadro neurovegetativos">cuadro neurovegetativos</option>
+          <option value="trastornos de conciencia">trastornos de conciencia</option>
+          <option value="signos de deshidratación">signos de deshidratación</option>
+          <option value="sepsis">sepsis</option>
+          <option value="patologías agudas cardiovascular neurológica">patologías agudas cardiovascular neurológica
+          </option>
+        </select>
+      </mat-form-field>
+
+      <!--      
+      <mat-slide-toggle class="example-section">Hombre</mat-slide-toggle>
+      <mat-slide-toggle class="example-section">Mujer</mat-slide-toggle> 
+-->
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nivel</mat-label>
+        <input matInput name="nivel" [(ngModel)]="diabeticoModel.nivel" type="text">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Validar</button>
+      <button mat-raised-button color="primary" type="submit">Ingresar</button>
 
     </form>
   </div>
 
+
   <div class="tabla">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="warn">Borrar</button>
-          <button mat-raised-button color="primary">Select</button>
-        </td>
-
-      </ng-container>
-
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+   <app-tabla></app-tabla>
   </div>
-
-
-
 
 </div>

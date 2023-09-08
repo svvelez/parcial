@@ -1,26 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background: #E9ECF4;
     color: #000;
     font-family: 'Roboto', sans-serif;
 }
-.container{
+
+.container {
     width: 100%;
     max-width: 1000px;
     margin: 20px auto;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(4,auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
 
     grid-template-areas: "header header header header"
-                         "contenido contenido sidebar sidebar"
-                         "contenido contenido sidebar sidebar"
-                         "contenido contenido sidebar sidebar";
+        "contenido contenido sidebar sidebar"
+        "contenido contenido sidebar sidebar"
+        "contenido contenido sidebar sidebar";
 }
 
 
@@ -32,17 +33,17 @@ body{
     border-radius: 4px;
 }
 
-.container .header{
+.container .header {
     background: #5b36e2;
     color: #fff;
     grid-area: header;
 }
 
-.container .formulario{
+.container .formulario {
     grid-area: contenido;
 }
 
-.container .tabla{
+.container .tabla {
     grid-column: 2 / 4;
     text-align: center;
     display: flex;
@@ -50,35 +51,38 @@ body{
     justify-content: center;
     min-height: 100px;
     grid-area: sidebar;
-    /* grid-row: span 2; */
 }
-
 
 table {
     width: 100%;
-  }
-  
-  .example-form {
+}
+.b{
+    display: flex;
+    color: #5b36e2;
+   
+}
+
+.example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
     justify-content: center;
-  }
-  
-  .example-full-width {
+}
+
+.example-full-width {
     width: 100%;
-  }
-  
-  .example-section {
+}
+
+.example-section {
     display: flex;
     align-content: center;
     align-items: center;
     height: 60px;
-  }
+}
 
-  .select{
+.select {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
     justify-content: center;
-  }
+}
