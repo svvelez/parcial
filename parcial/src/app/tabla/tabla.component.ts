@@ -11,8 +11,6 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TablaComponent implements OnInit {
 
-
-
   public diabeticos: MatTableDataSource<any> = new MatTableDataSource();
 
   ngOnInit() {
@@ -32,8 +30,6 @@ export class TablaComponent implements OnInit {
 
   }
 
-
-  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'sintomas', 'nivel'];
-
+  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'sintomas','nivel'];
 
 }

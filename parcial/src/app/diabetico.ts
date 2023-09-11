@@ -5,6 +5,7 @@ export class Diabetico {
         public cedula: string,
         public eps: string,
         public sintomas: string,
+        public glicemia: string,
         public nivel: string,
         public id?: number,
     ) { }

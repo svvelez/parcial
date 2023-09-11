@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  diabeticoModel = new Diabetico("", "", "", "", "", "", undefined)
+  diabeticoModel = new Diabetico("", "", "", "", "", "","", undefined)
 
   onSubmit() {
     this.diabeticosService.addDiabetico(this.diabeticoModel).subscribe(() => {
