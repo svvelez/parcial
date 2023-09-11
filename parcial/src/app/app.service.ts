@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
     constructor(private http: HttpClient) { }
   
     getDiabeticos() {
-      return this.http.get(`${this.baseUrl}/getAll.php`);
+      return this.http.get<any>(`${this.baseUrl}/getAll.php`);
     }
   
     getDiabetico(id: string | number) {

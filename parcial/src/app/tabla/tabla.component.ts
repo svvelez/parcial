@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiabeticosService } from '../app.service';
 import { Diabetico } from '../diabetico';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -10,20 +11,29 @@ import { Diabetico } from '../diabetico';
 })
 export class TablaComponent implements OnInit {
 
-  diabeticos: Diabetico[] = [
-    new Diabetico("Juliana", "Lozano", "216464", "sura", "cuadro neurovegetativo", "2")
-  ];
 
-  constructor(private diabeticosService: DiabeticosService) { }
 
- 
-   ngOnInit() {
+  public diabeticos: MatTableDataSource<any> = new MatTableDataSource();
+
+  ngOnInit() {
     this.obtenerDiabeticos();
   }
 
-  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'sintomas', 'nivel'];
+  constructor(private diabeticosService: DiabeticosService) { }
+
+
   obtenerDiabeticos() {
-    return this.diabeticosService.getDiabeticos().subscribe((diabeticos:any) => this.diabeticos = diabeticos);
+    return this.diabeticosService.getDiabeticos().subscribe(
+      (data: any) => {
+
+        this.diabeticos = new MatTableDataSource(data);
+      },
+    );
+
   }
+
+
+  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'sintomas', 'nivel'];
+
 
 }
