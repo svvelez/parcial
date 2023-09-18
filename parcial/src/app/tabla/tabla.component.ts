@@ -30,6 +30,6 @@ export class TablaComponent implements OnInit {
 
   }
 
-  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'sintomas','nivel'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'cedula', 'eps', 'diagnostico'];
 
 }

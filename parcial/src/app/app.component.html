@@ -9,7 +9,7 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ingreese su nombre" name="nombre" [(ngModel)]="diabeticoModel.nombre" type="text">
+        <input matInput placeholder="Ingreese su nombre"  name="nombre" [(ngModel)]="diabeticoModel.nombre" type="text">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -45,19 +45,23 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Glicemia</mat-label>
-        <input matInput name="glicemia" [(ngModel)]="diabeticoModel.glicemia" type="text">
+        <mat-label>Glucemia</mat-label>
+        <input matInput name="glucemia" [(ngModel)]="glucemia" type="number">
       </mat-form-field>
+
 
       <mat-form-field class="example-full-width">
-        <mat-label>Nivel</mat-label>
-        <input matInput name="nivel" [(ngModel)]="diabeticoModel.nivel" type="text">
+        <mat-label>Diagnostico</mat-label>
+        <input matInput  name="diagnostico" [(ngModel)]="diabeticoModel.diagnostico" type="text" value="{{diagnostico}}">
       </mat-form-field>
+   
 
-      <button mat-raised-button color="primary">Validar</button>
+      <button mat-raised-button color="primary" (click)="validar()">Validar</button>
       <button mat-raised-button color="primary" type="submit">Ingresar</button>
 
     </form>
+
+    <div *ngIf="diagnostico"></div>
   </div>
 
 
